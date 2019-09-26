@@ -1,0 +1,24 @@
+{
+	"programmingLanguage": [{
+		"name": "JavaScript",
+		"application": "backend",
+		"framework": [
+			"Angular",
+			"ReactJs",
+			"React Native"
+		],
+		"compatible": [
+			"HTML",
+			"Java"
+		]
+	}, {
+		"name": "PHP",
+		"application": "fullstack",
+		"framework": [
+			"Symphony"
+		],
+		"compatible": [
+			"HTML"
+		]
+	}]
+}

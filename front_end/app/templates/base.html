@@ -1,0 +1,22 @@
+<html>
+    <head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main_style.css') }}">
+        {% if title %}
+        <title>{{ title }} - Database</title>
+        {% else %}
+        <title>Coding Database</title>
+        {% endif %}
+    </head>
+    <body>
+        <ul>
+        <li><a href="/index">Database</a></li>
+        <li><a href="/add">Add</a></li>
+        <li><a href="#">Delete</a></li>
+        <form>
+            <li><input type="text" name="search" placeholder="Search.."></li>
+        </form>
+        <li><a href="#">Search</a></li>
+        </ul>
+        {% block content %}{% endblock %}
+    </body>
+</html>

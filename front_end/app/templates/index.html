@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table class="steelBlueCols">
+        <tr>
+            <th>Name</th>
+            <th>Main application</th>
+            <th>Supported frameworks</th>
+            <th>Compatible with</th>
+        </tr>
+        {% for data in table_data.programmingLanguage %}
+        <tr>
+            <td>{{ data['name'] }}</td>
+            <td>{{ data['application'] }}</td>
+            <td>
+            {% for framework in data['framework'] %}
+                {{ framework }}
+            {% endfor %}
+            </td>
+            <td>
+            {% for compatible in data['compatible'] %}
+                {{ compatible }}
+            {% endfor %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
+
