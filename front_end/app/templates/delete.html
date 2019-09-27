@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="/delete/post" method="post">
+    <table class="steelBlueCols">
+        <tr>
+            <th>Name</th>
+            <th>Main application</th>
+            <th>Supported frameworks</th>
+            <th>Compatible with</th>
+            <th>Delete</th>
+        </tr>
+        {% for data in table_data %}
+        <tr>
+            <td>{{ data['name'] }}</td>
+            <td>{{ data['application'] }}</td>
+            <td>
+            {% for framework in data['framework'] %}
+                {{ framework }}
+            {% endfor %}
+            </td>
+            <td>
+            {% for compatible in data['compatible'] %}
+                {{ compatible }}
+            {% endfor %}
+            </td>
+            <td ><button type="submit" name="delete_id" value="{{ data['id'] }}" style="width:100%">delete {{ data['name'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </form>
+
+{% endblock %}
+
