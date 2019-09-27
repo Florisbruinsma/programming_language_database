@@ -2,7 +2,7 @@
 
 {% block content %}
 <div>
-<form action="/action_page.php">
+<form  action="/add/post" method="post">
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" placeholder="Name of language..">
 
@@ -13,13 +13,16 @@
         <option value="fullstack">Full stack</option>
     </select>
 
-    <label for="framework">Supported frameworks:</label>
+    <label for="framework">Supported frameworks (seperate multiple languages with a , ):</label>
     <input type="text" id="framework" name="framework" placeholder="Names of supported frameworks..">
 
-    <label for="compatible">Compatible with:</label>
+    <label for="compatible">Compatible with (seperate multiple languages with a , ):</label>
     <input type="text" id="compatible" name="compatible" placeholder="Names of compatible languages..">
 
     <input type="submit" value="Submit">
+    {% if post_info %}
+    {{ post_info }}
+    {% endif %}
 </form>
 </div>
 

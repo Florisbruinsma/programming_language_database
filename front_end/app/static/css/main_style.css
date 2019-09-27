@@ -1,6 +1,6 @@
 table.steelBlueCols {
     font-family: "Comic Sans MS", cursive, sans-serif;
-    border: 4px solid #545555;
+    border: 4px solid #555555;
     background-color: #555555;
     text-align: center;
     width: 100%;
@@ -107,3 +107,4 @@ input[class=search] {
     background-color: white;
     padding: 12px 20px 12px 40px;
 }
+

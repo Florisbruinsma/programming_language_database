@@ -8,15 +8,15 @@
         {% endif %}
     </head>
     <body>
-        <ul>
-        <li><a href="/index">Database</a></li>
-        <li><a href="/add">Add</a></li>
-        <li><a href="#">Delete</a></li>
-        <form>
+        <form action="/search" method="post">
+            <ul>
+            <li><a href="/index">Database</a></li>
+            <li><a href="/add">Add</a></li>
+            <li><a href="/delete">Delete</a></li>
             <li><input type="text" name="search" placeholder="Search.."></li>
+            <li><input type="submit" name="search_start" value="search"></li>
+            </ul>
         </form>
-        <li><a href="#">Search</a></li>
-        </ul>
         {% block content %}{% endblock %}
     </body>
 </html>
