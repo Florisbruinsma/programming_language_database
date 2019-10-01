@@ -1,0 +1,18 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <form action="/style/post" method="post">
+        <input type="color" id="prime_color" name="prime_color"
+            value="{% if prime_color %}{{prime_color}}{% else %}#555555{% endif %}">
+        <label for="head">Primary color</label>
+        <br>
+        <input type="color" id="sec_color" name="sec_color"
+            value="{% if sec_color %}{{sec_color}}{% else %}#398AA4{% endif %}">
+        <label for="body">Secondary color</label>
+        <input type="submit" value="Update style">
+    </form>
+</div>
+
+{% endblock %}

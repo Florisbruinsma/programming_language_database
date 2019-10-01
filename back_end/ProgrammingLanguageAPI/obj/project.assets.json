@@ -8912,11 +8912,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\s141203\\Desktop\\C#\\ProgrammingLanguageAPI\\ProgrammingLanguageAPI\\ProgrammingLanguageAPI\\ProgrammingLanguageAPI.csproj",
+      "projectUniqueName": "C:\\Users\\s141203\\Desktop\\programming_language_database\\back_end\\ProgrammingLanguageAPI\\ProgrammingLanguageAPI.csproj",
       "projectName": "ProgrammingLanguageAPI",
-      "projectPath": "C:\\Users\\s141203\\Desktop\\C#\\ProgrammingLanguageAPI\\ProgrammingLanguageAPI\\ProgrammingLanguageAPI\\ProgrammingLanguageAPI.csproj",
+      "projectPath": "C:\\Users\\s141203\\Desktop\\programming_language_database\\back_end\\ProgrammingLanguageAPI\\ProgrammingLanguageAPI.csproj",
       "packagesPath": "C:\\Users\\s141203\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\s141203\\Desktop\\C#\\ProgrammingLanguageAPI\\ProgrammingLanguageAPI\\ProgrammingLanguageAPI\\obj\\",
+      "outputPath": "C:\\Users\\s141203\\Desktop\\programming_language_database\\back_end\\ProgrammingLanguageAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

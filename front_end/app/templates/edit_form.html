@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+<form  action="/edit/post" method="post">
+    <label for="name">Name:</label>
+    <input type="hidden" id="id" name="id" value="{{table_data['id']}}">
+    <input type="text" id="name" name="name" value="{{table_data['name']}}" placeholder="Name of language..">
+
+    <label for="application">Main application:</label>
+    <select id="application" name="application">
+        <option value="frontend" {% if table_data['application']== "frontend" %} selected {% endif %}>Front end</option>
+        <option value="backend" {% if table_data['application']== "backend" %} selected {% endif %}>Back end</option>
+        <option value="fullstack" {% if table_data['application']== "fullstack" %} selected {% endif %}>Full stack</option>
+    </select>
+
+    <label for="framework">Supported frameworks (seperate multiple languages with a , ):</label>
+    <input type="text" id="framework" name="framework" value="{{table_data['framework']}}" placeholder="Names of supported frameworks..">
+
+    <label for="compatible">Compatible with (seperate multiple languages with a , ):</label>
+    <input type="text" id="compatible" name="compatible" value="{{table_data['compatible']}}" placeholder="Names of compatible languages..">
+
+    <input type="submit" value="Submit">
+    {% if post_info %}
+    {{ post_info }}
+    {% endif %}
+</form>
+</div>
+
+{% endblock %}
+

@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+<form action="/edit/form" method="post">
     <table class="steelBlueCols">
         <tr>
             <th>Name</th>
             <th>Main application</th>
             <th>Supported frameworks</th>
             <th>Compatible with</th>
+            <th>Delete</th>
         </tr>
         {% for data in table_data %}
         <tr>
@@ -22,15 +24,11 @@
                 {{ compatible }}
             {% endfor %}
             </td>
+            <td ><button type="submit" name="edit_id" value="{{ data['id'] }}" style="width:100%">edit {{ data['name'] }}</td>
         </tr>
         {% endfor %}
     </table>
-    <div class="pagination">
-        <a href="/index/{{pages[0]}}">&laquo;</a>
-        {% for page in pages[1:-1] %}
-            <a href="/index/{{page}}">{{page}}</a>
-        {% endfor %}
-        <a href="/index/{{pages[-1]}}">&raquo;</a>
-    </div>
+    </form>
 
 {% endblock %}
+

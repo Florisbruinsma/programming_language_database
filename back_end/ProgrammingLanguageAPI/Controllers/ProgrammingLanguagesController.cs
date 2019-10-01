@@ -68,7 +68,7 @@ namespace ProgrammingLanguageAPI.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok();
         }
 
         // POST: api/ProgrammingLanguages

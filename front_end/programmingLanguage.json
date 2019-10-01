@@ -1,24 +1,134 @@
-{
-	"programmingLanguage": [{
-		"name": "JavaScript",
-		"application": "backend",
-		"framework": [
-			"Angular",
-			"ReactJs",
-			"React Native"
-		],
-		"compatible": [
-			"HTML",
-			"Java"
-		]
-	}, {
-		"name": "PHP",
-		"application": "fullstack",
-		"framework": [
-			"Symphony"
-		],
-		"compatible": [
-			"HTML"
-		]
-	}]
-}
+[
+    {
+        "name": "Python",
+        "application": "fullstack",
+        "framework": "Django, Web2py, TurboGears",
+        "compatible": "C, Java, HTML"
+    },
+    {
+        "name": "Ruby",
+        "application": "backend",
+        "framework": "Ruby on Rails, Hanami, Sinatra",
+        "compatible": "C, apache, python"
+    },
+    {
+        "name": "JavaScript",
+        "application": "fullstack",
+        "framework": "Angular, React, Vue",
+        "compatible": "HTML, php"
+    },
+    {
+        "name": "Java",
+        "application": "backend",
+        "framework": "Spring, Grails, Blade",
+        "compatible": "C', Python, Ruby"
+    },
+    {
+        "name": "C++",
+        "application": "backend",
+        "framework": "STL, Boost",
+        "compatible": "Python, Java"
+    },
+    {
+        "name": "C",
+        "application": "backend",
+        "framework": "",
+        "compatible": "Python, Java"
+    },
+    {
+        "name": "PHP",
+        "application": "fullstack",
+        "framework": "Laravel, CodeIgniter, Symfony",
+        "compatible": "HTML, Javascript, CSS"
+    },
+    {
+        "name": "Perl",
+        "application": "backend",
+        "framework": "Catalyst, Dancer",
+        "compatible": "C"
+    },
+    {
+        "name": "C#",
+        "application": "fullstack",
+        "framework": "xamarin, Unity, uwp",
+        "compatible": ""
+    },
+    {
+        "name": "Python",
+        "application": "fullstack",
+        "framework": "Django, Web2py, TurboGears",
+        "compatible": "C, Java, HTML"
+    },
+    {
+        "name": "Ruby",
+        "application": "backend",
+        "framework": "Ruby on Rails, Hanami, Sinatra",
+        "compatible": "C, apache, python"
+    },
+    {
+        "name": "JavaScript",
+        "application": "fullstack",
+        "framework": "Angular, React, Vue",
+        "compatible": "HTML, php"
+    },
+    {
+        "name": "Java",
+        "application": "backend",
+        "framework": "Spring, Grails, Blade",
+        "compatible": "C', Python, Ruby"
+    },
+    {
+        "name": "C++",
+        "application": "backend",
+        "framework": "STL, Boost",
+        "compatible": "Python, Java"
+    },
+    {
+        "name": "C",
+        "application": "backend",
+        "framework": "",
+        "compatible": "Python, Java"
+    },
+    {
+        "name": "PHP",
+        "application": "fullstack",
+        "framework": "Laravel, CodeIgniter, Symfony",
+        "compatible": "HTML, Javascript, CSS"
+    },
+    {
+        "name": "Perl",
+        "application": "backend",
+        "framework": "Catalyst, Dancer",
+        "compatible": "C"
+    },
+    {
+        "name": "C#",
+        "application": "fullstack",
+        "framework": "xamarin, Unity, uwp",
+        "compatible": ""
+    },
+    {
+        "name": "C",
+        "application": "backend",
+        "framework": "",
+        "compatible": "Python, Java"
+    },
+    {
+        "name": "PHP",
+        "application": "fullstack",
+        "framework": "Laravel, CodeIgniter, Symfony",
+        "compatible": "HTML, Javascript, CSS"
+    },
+    {
+        "name": "Perl",
+        "application": "backend",
+        "framework": "Catalyst, Dancer",
+        "compatible": "C"
+    },
+    {
+        "name": "C#",
+        "application": "fullstack",
+        "framework": "xamarin, Unity, uwp",
+        "compatible": ""
+    }
+]

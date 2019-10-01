@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+<form  action="/advanced_search/post" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Name of language..">
+
+    <label for="application">Main application:</label>
+    <select id="application" name="application">
+        <option value="*">*</option>
+        <option value="frontend">Front end</option>
+        <option value="backend">Back end</option>
+        <option value="fullstack">Full stack</option>
+    </select>
+
+    <label for="framework">Supported frameworks (seperate multiple languages with a , ):</label>
+    <input type="text" id="framework" name="framework" placeholder="Names of supported frameworks..">
+
+    <label for="compatible">Compatible with (seperate multiple languages with a , ):</label>
+    <input type="text" id="compatible" name="compatible" placeholder="Names of compatible languages..">
+
+    <input type="submit" value="Search">
+</form>
+</div>
+
+{% endblock %}
+
