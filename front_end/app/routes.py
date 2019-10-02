@@ -7,9 +7,14 @@ import urllib3
 import os
 import math
 import random
-
+# TODO
+# make a database check where I merge everything with the same name
+# in advanced search be able to sleect and or or for any of the fields
+# when you change random style, stay on same page
+# index link like index/page_number/column_number/ascending/descending
+#   column number can also be id for standard sort
 PAGINATION_SIZE = 3
-ROWS_PER_PAGE = 3
+ROWS_PER_PAGE = 5
 PRIME_COLOR = "#{:06x}".format(random.randint(0, 0xFFFFFF))#"#555555"
 SEC_COLOR = "#{:06x}".format(random.randint(0, 0xFFFFFF))#"#398AA4"
 
@@ -19,7 +24,7 @@ http = urllib3.PoolManager(
     timeout=urllib3.Timeout(connect=2.0, read=2.0),#max time for connection is 2 sec and for read is 2 sec
     retries=urllib3.Retry(3, redirect=False)#retry maximum of 3 times to get the data, and disable being redirected
     )
-API_LINK = 'https://localhost:44351/api/programminglanguages'
+API_LINK = 'https://localhost:44386/api/programmingLanguages'
 
 def seed_database():
     file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'programmingLanguage.json')
@@ -46,11 +51,8 @@ def pagination(table_data, page):
     return table_data, pages
 
 @app.route('/')
-def start():
-    return redirect(url_for('index', page=1))
-
-@app.route('/index/<page>')#main page, show the database and actions you can take
-def index(page):
+@app.route('/index/<page>/<colun_name>/<sorting_order>')#main page, show the database and actions you can take
+def index(page = 1, colun_name = 'id', sorting_order = "ASC"):
     table_data = requests.get(API_LINK, verify=False).json()
     if(table_data == []):
         seed_database()
@@ -102,13 +104,13 @@ def edit_form():
 @app.route('/edit/post', methods=["GET", "POST"])
 def edit_form_post():
     data = {
-    'id': int(request.form['id']),
+    'id': request.form['id'],
     'name' : request.form['name'],
     'application' : request.form['application'],
     'framework' : request.form['framework'],
     'compatible' : request.form['compatible'],
     }
-    responce = requests.put(url = API_LINK + "/" + str(data["id"]), json = data,  verify=False)
+    responce = requests.put(url = API_LINK + "/" + data["id"], json = data,  verify=False)
     return render_template('edit_form.html', title='Edit', table_data = data ,post_info=responce.reason)
 
 @app.route('/style')
@@ -122,6 +124,18 @@ def style_post():
     PRIME_COLOR = request.form['prime_color']
     SEC_COLOR = request.form['sec_color']
     return render_template('style.html', title='Edit', prime_color = PRIME_COLOR, sec_color = SEC_COLOR)
+
+@app.route('/style_rand')
+def style_rand():
+    global PRIME_COLOR
+    global SEC_COLOR
+    PRIME_COLOR = "#{:06x}".format(random.randint(0, 0xFFFFFF))
+    SEC_COLOR = "#{:06x}".format(random.randint(0, 0xFFFFFF))
+    return redirect(url_for('index', page=1))
+
+@app.route('/search/<page>')
+def search(page):
+    return render_template('advanced_search.html', title='Search')
 
 @app.route('/advanced_search')
 def advanced_search():

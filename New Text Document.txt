@@ -1,0 +1,1 @@
+mongod --dbpath "C:\Users\s141203\Desktop\programming_language_database\mongol_db\ProgrammingLanguages"
