@@ -11,11 +11,11 @@ namespace ProgrammingLanguagesAPIv2.Models
 
         [BsonElement("name")]
         public string name { get; set; }
-
+        [BsonElement("application")]
         public string application { get; set; }
-
+        [BsonElement("framework")]
         public string framework{ get; set; }
-
+        [BsonElement("compatible")]
         public string compatible { get; set; }
     }
 }
