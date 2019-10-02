@@ -25,21 +25,32 @@ namespace ProgrammingLanguagesAPIv2.Services
             _programmingLanguages.Find<ProgrammingLanguage>(programmingLanguage => programmingLanguage.Id == id).FirstOrDefault();
 
         public List<ProgrammingLanguage> GetByName(string name) =>
-           _programmingLanguages.Find<ProgrammingLanguage>(programmingLanguage => programmingLanguage.name == name).ToList();
+           _programmingLanguages.Find<ProgrammingLanguage>(programmingLanguage => programmingLanguage.name.ToLower().Contains(name)).ToList();
 
         public List<ProgrammingLanguage> GetByApplication(string application) =>
-           _programmingLanguages.Find<ProgrammingLanguage>(programmingLanguage => programmingLanguage.application == application).ToList();
+           _programmingLanguages.Find<ProgrammingLanguage>(programmingLanguage => programmingLanguage.application.ToLower().Contains(application)).ToList();
 
         public List<ProgrammingLanguage> GetByFramework(string framework) =>
-           _programmingLanguages.Find<ProgrammingLanguage>(programmingLanguage => programmingLanguage.framework == framework).ToList();
+           _programmingLanguages.Find<ProgrammingLanguage>(programmingLanguage => programmingLanguage.framework.ToLower().Contains(framework)).ToList();
 
         public List<ProgrammingLanguage> GetByCompatible(string compatible) =>
-           _programmingLanguages.Find<ProgrammingLanguage>(programmingLanguage => programmingLanguage.compatible == compatible).ToList();
+           _programmingLanguages.Find<ProgrammingLanguage>(programmingLanguage => programmingLanguage.compatible.ToLower().Contains(compatible)).ToList();
 
         public List<ProgrammingLanguage> GetByAll(string search)
         {
+            if (search == "*")
+            {
+                search = "";
+            };
             var builder = Builders<ProgrammingLanguage>.Filter;
-            var filter = builder.Or(builder.Eq("name", search), builder.Eq("application", search), builder.Eq("framework", search), builder.Eq("compatible", search));
+            //var filter = builder.AnyEq(search, new BsonRegularExpression("[a-zA-Z]"));
+            //var filter = builder.Or(
+            //    builder.Eq("name", search), builder.Eq("application", search), builder.Eq("framework", search), builder.Eq("compatible", search));
+            //var filter = Builders<ProgrammingLanguage>.Filter.AnyEq("name", search);
+            var filter = builder.Or(builder.Where(programmingLanguage => programmingLanguage.name.ToLower().Contains(search)),
+                                    builder.Where(programmingLanguage => programmingLanguage.application.ToLower().Contains(search)),
+                                    builder.Where(programmingLanguage => programmingLanguage.framework.ToLower().Contains(search)),
+                                    builder.Where(programmingLanguage => programmingLanguage.compatible.ToLower().Contains(search)));
             var result = _programmingLanguages.Find(filter).ToList();
             return result;
         }
