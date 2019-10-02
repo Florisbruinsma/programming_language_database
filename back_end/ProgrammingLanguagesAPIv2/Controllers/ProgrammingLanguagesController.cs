@@ -20,10 +20,80 @@ namespace ProgrammingLanguagesAPIv2.Controllers
         public ActionResult<List<ProgrammingLanguage>> Get() =>
             _programmingLanguageService.Get();
 
-        [HttpGet("{id:length(24)}", Name = "GetProgrammingLanguage")]
+        [HttpGet("{id}", Name = "GetProgrammingLanguage")]
         public ActionResult<ProgrammingLanguage> Get(string id)
         {
             var programmingLanguage = _programmingLanguageService.Get(id);
+
+            if (programmingLanguage == null)
+            {
+                return NotFound();
+            }
+
+            return programmingLanguage;
+        }
+
+        [Route("[action]/{name}")]
+        [HttpGet]
+        public ActionResult<List<ProgrammingLanguage>> GetByName(string name)
+        {
+            var programmingLanguage = _programmingLanguageService.GetByName(name);
+
+            if (programmingLanguage == null)
+            {
+                return NotFound();
+            }
+
+            return programmingLanguage;
+        }
+
+        [Route("[action]/{application}")]
+        [HttpGet]
+        public ActionResult<List<ProgrammingLanguage>> GetByApplication(string application)
+        {
+            var programmingLanguage = _programmingLanguageService.GetByApplication(application);
+
+            if (programmingLanguage == null)
+            {
+                return NotFound();
+            }
+
+            return programmingLanguage;
+        }
+
+        [Route("[action]/{framework}")]
+        [HttpGet]
+        public ActionResult<List<ProgrammingLanguage>> GetByFramework(string framework)
+        {
+            var programmingLanguage = _programmingLanguageService.GetByFramework(framework);
+
+            if (programmingLanguage == null)
+            {
+                return NotFound();
+            }
+
+            return programmingLanguage;
+        }
+
+        [Route("[action]/{compatible}")]
+        [HttpGet]
+        public ActionResult<List<ProgrammingLanguage>> GetByCompatible(string compatible)
+        {
+            var programmingLanguage = _programmingLanguageService.GetByCompatible(compatible);
+
+            if (programmingLanguage == null)
+            {
+                return NotFound();
+            }
+
+            return programmingLanguage;
+        }
+
+        [Route("[action]/{search}")]
+        [HttpGet]
+        public ActionResult<List<ProgrammingLanguage>> GetByAll(string search)
+        {
+            var programmingLanguage = _programmingLanguageService.GetByAll(search);
 
             if (programmingLanguage == null)
             {

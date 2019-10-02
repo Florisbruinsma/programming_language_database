@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
+using MongoDB.Bson;
 
 namespace ProgrammingLanguagesAPIv2.Services
 {
@@ -22,6 +23,26 @@ namespace ProgrammingLanguagesAPIv2.Services
 
         public ProgrammingLanguage Get(string id) =>
             _programmingLanguages.Find<ProgrammingLanguage>(programmingLanguage => programmingLanguage.Id == id).FirstOrDefault();
+
+        public List<ProgrammingLanguage> GetByName(string name) =>
+           _programmingLanguages.Find<ProgrammingLanguage>(programmingLanguage => programmingLanguage.name == name).ToList();
+
+        public List<ProgrammingLanguage> GetByApplication(string application) =>
+           _programmingLanguages.Find<ProgrammingLanguage>(programmingLanguage => programmingLanguage.application == application).ToList();
+
+        public List<ProgrammingLanguage> GetByFramework(string framework) =>
+           _programmingLanguages.Find<ProgrammingLanguage>(programmingLanguage => programmingLanguage.framework == framework).ToList();
+
+        public List<ProgrammingLanguage> GetByCompatible(string compatible) =>
+           _programmingLanguages.Find<ProgrammingLanguage>(programmingLanguage => programmingLanguage.compatible == compatible).ToList();
+
+        public List<ProgrammingLanguage> GetByAll(string search)
+        {
+            var builder = Builders<ProgrammingLanguage>.Filter;
+            var filter = builder.Or(builder.Eq("name", search), builder.Eq("application", search), builder.Eq("framework", search), builder.Eq("compatible", search));
+            var result = _programmingLanguages.Find(filter).ToList();
+            return result;
+        }
 
         public ProgrammingLanguage Create(ProgrammingLanguage programmingLanguage)
         {

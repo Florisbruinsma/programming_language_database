@@ -6105,11 +6105,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marce\\source\\repos\\ProgrammingLanguagesAPIv2\\ProgrammingLanguagesAPIv2\\ProgrammingLanguagesAPIv2.csproj",
+      "projectUniqueName": "C:\\Users\\marce\\source\\repos\\ProgammingLanguageAPI\\back_end\\ProgrammingLanguagesAPIv2\\ProgrammingLanguagesAPIv2.csproj",
       "projectName": "ProgrammingLanguagesAPIv2",
-      "projectPath": "C:\\Users\\marce\\source\\repos\\ProgrammingLanguagesAPIv2\\ProgrammingLanguagesAPIv2\\ProgrammingLanguagesAPIv2.csproj",
+      "projectPath": "C:\\Users\\marce\\source\\repos\\ProgammingLanguageAPI\\back_end\\ProgrammingLanguagesAPIv2\\ProgrammingLanguagesAPIv2.csproj",
       "packagesPath": "C:\\Users\\marce\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marce\\source\\repos\\ProgrammingLanguagesAPIv2\\ProgrammingLanguagesAPIv2\\obj\\",
+      "outputPath": "C:\\Users\\marce\\source\\repos\\ProgammingLanguageAPI\\back_end\\ProgrammingLanguagesAPIv2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
