@@ -34,6 +34,7 @@ def seed_database():
             requests.post(url = API_LINK, json = seed,  verify=False)
 
 def pagination(table_data, page):
+    page_amount = 0
     rows = len(table_data)
     total_pages = math.ceil(rows/ROWS_PER_PAGE)
     pages = [1]
@@ -41,12 +42,25 @@ def pagination(table_data, page):
         print("page to far")
         # TODO update the page in the href?
         page = total_pages
+    if(page < 1):
+        page = 1
     if(page == 1):
-        pages.extend([1,2,3,total_pages])
+        page_number = 1
+        while(page_number <= total_pages and page_amount < PAGINATION_SIZE):
+            pages.append(page_number)
+            page_number += 1
+            page_amount += 1
     elif(page == total_pages):
-        pages.extend([total_pages-2,total_pages-1,total_pages,total_pages])
+        page_number = total_pages - PAGINATION_SIZE + 1
+        if(page_number<1):
+            page_number = 1
+        while(page_number <= total_pages and page_amount < PAGINATION_SIZE):
+            pages.append(page_number)
+            page_number += 1
+            page_amount += 1
     else:
-        pages.extend([page-1,page,page+1,total_pages])
+        pages.extend([page-1,page,page+1])
+    pages.append(total_pages)
     table_data = table_data[(page-1)*ROWS_PER_PAGE:(page)*ROWS_PER_PAGE]
     return table_data, pages
 
@@ -61,7 +75,7 @@ def index(page = 1, query = '*', column_name = 'id', sorting_order = "ASC"):
         seed_database()
         table_data = requests.get(API_LINK, verify=False).json()
     table_data, pages = pagination(table_data, int(page))
-    return render_template('index.html', title='Home', table_data = table_data, pages = pages, prime_color = PRIME_COLOR, sec_color = SEC_COLOR)
+    return render_template('index.html',query = query, title='Home', table_data = table_data, pages = pages, prime_color = PRIME_COLOR, sec_color = SEC_COLOR)
 
 @app.route("/add", methods=["GET", "POST"])#post the form to the api
 def add():
@@ -128,9 +142,10 @@ def style_rand():
 @app.route('/search', methods=["GET", "POST"])
 @app.route('/search/<page>', methods=["GET", "POST"])
 def search(page = 1):
-    query = "*"
     if request.method == 'POST':
         query = request.form['search_query']#TODO make sure that this cannot be empty
+    if(query == ""):
+        query = "*"
     return redirect(url_for('index', query=query, page = page))
     # return render_template('advanced_search.html', title='Search')
 

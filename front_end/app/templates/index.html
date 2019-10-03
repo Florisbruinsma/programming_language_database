@@ -26,11 +26,11 @@
         {% endfor %}
     </table>
     <div class="pagination">
-        <a href="/index/{{pages[0]}}">&laquo;</a>
+        <a href="/index/{{pages[0]}}{% if query %}/{{query}}{% endif %}">&laquo;</a>
         {% for page in pages[1:-1] %}
-            <a href="/index/{{page}}">{{page}}</a>
+            <a href="/index/{{page}}{% if query %}/{{query}}{% endif %}">{{page}}</a>
         {% endfor %}
-        <a href="/index/{{pages[-1]}}">&raquo;</a>
+        <a href="/index/{{pages[-1]}}{% if query %}/{{query}}{% endif %}">&raquo;</a>
     </div>
 
 {% endblock %}
